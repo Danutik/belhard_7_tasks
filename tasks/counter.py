@@ -17,3 +17,33 @@
 - метод __iter__
 - метод __next__
 """
+
+
+class Counter:
+
+    def __init__(self, value=0):
+        self.value = value
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        value = self.value
+        self.value += 1
+        return value
+
+    def increase(self, num: int = 1):
+        self.value += num
+        return self.value
+
+    def decrease(self, num: int = 1):
+        self.value -= num
+        return self.value
+
+
+counter = Counter()
+iterator = iter(counter)
+
+print(next(iterator))
+print(next(iterator))
+print(next(iterator))
