@@ -24,11 +24,10 @@ class RandSequence:
 
     def __init__(self, n):
         self.n = n
-        self.sequence = [random.randint(-n, n) for i in range(n)]
+        self.sequence = [random.randint(-self.n, self.n) for i in range(self.n)]
 
-    def generate(self, n):
-        self.n = n
-        self.sequence = (random.randint(-self.n, self.n) for i in range(self.n))
+    def generate(self, n=0):
+        self.sequence = (random.randint(-n, n) for i in range(n))
         return self.sequence
 
     def print_seq(self):
